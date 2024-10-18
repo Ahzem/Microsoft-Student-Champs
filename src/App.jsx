@@ -4,7 +4,9 @@ import mlsaLogo from '/LevelNew.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [message, setMessage] = useState('');
+
 
   const handleClick = async () => {
     setCount((count) => count + 1);
@@ -14,8 +16,9 @@ function App() {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data); // Handle the fetched data
+        const data = await response.json();
+        setMessage(data.message); // Store// Handle the fetched data
+        console.log({data:data});
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -36,6 +39,7 @@ function App() {
         <button onClick={handleClick}>
           count is {count}
         </button>
+        <p>Message: {message}</p>
         <p>
         Integrating serverless APIs and authentication made easy with Azure.
         </p>
