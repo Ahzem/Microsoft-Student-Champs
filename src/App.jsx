@@ -1,24 +1,23 @@
-import { useState } from 'react'
-import azureLogo from '/Azure.png'
-import mlsaLogo from '/LevelNew.png'
-import './App.css'
+import { useState } from 'react';
+import azureLogo from '/Azure.png';
+import mlsaLogo from '/LevelNew.png';
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState('');
 
-
   const handleClick = async () => {
     setCount((count) => count + 1);
-  
+
     try {
       const response = await fetch('https://nice-sky-0bec97100.5.azurestaticapps.net/api/MyHttpTrigger');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-        const data = await response.json();
-        setMessage(data.message); // Store// Handle the fetched data
-        console.log({data:data});
+      const data = await response.json();
+      setMessage(data.message); // Store the fetched message
+      console.log({ data });
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -41,14 +40,14 @@ function App() {
         </button>
         <p>Message: {message}</p>
         <p>
-        Integrating serverless APIs and authentication made easy with Azure.
+          Integrating serverless APIs and authentication made easy with Azure.
         </p>
       </div>
       <p className="read-the-docs">
-      Microsoft Learn Student Ambassadors are a global group of on-campus ambassadors who are eager to help fellow students, create robust tech communities, and develop technical and career skills for the future.
+        Microsoft Learn Student Ambassadors are a global group of on-campus ambassadors who are eager to help fellow students, create robust tech communities, and develop technical and career skills for the future.
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
