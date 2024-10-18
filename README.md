@@ -2,8 +2,6 @@
 
 This is a sample React site created using Vite for a demo on **Integrating Serverless APIs and Authentication with Azure Static Web Apps**. The project was built as part of a practical session for the **Microsoft Learn Student Ambassador** program.
 
-<img align="center" src="./public/LevelNew.png" height=>
-
 ## Overview
 
 This project demonstrates how to set up a React project using Vite, deploy it to GitHub, and host it using Azure Static Web Apps. It includes:
