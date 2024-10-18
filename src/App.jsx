@@ -6,6 +6,21 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const handleClick = async () => {
+    setCount((count) => count + 1);
+  
+    try {
+      const response = await fetch('http://localhost:7071/api/MyHttpTrigger');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data); // Handle the fetched data
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  };
+
   return (
     <>
       <div>
@@ -18,7 +33,7 @@ function App() {
       </div>
       <h1>Welcome to Microsoft Student Champs</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={handleClick}>
           count is {count}
         </button>
         <p>
