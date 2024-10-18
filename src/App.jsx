@@ -10,7 +10,7 @@ function App() {
     setCount((count) => count + 1);
   
     try {
-      const response = await fetch('http://localhost:7071/api/MyHttpTrigger');
+      const response = await fetch('https://nice-sky-0bec97100.5.azurestaticapps.net/api/MyHttpTrigger');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
